@@ -1,0 +1,15 @@
+-Criar repo no GitHub chamado morse
+
+-OBJETIVO: criar tradução de código morse para texto
+
+-Solução baseada em socket que recebe um código morse e transforma ele em texto
+
+-Imagine que o cliente vai enviar "." e "-" e o servidor vai receber estas informações e interpretar o que aquele código morse representa. 
+
+-OBJETIVO: definir uma arquitetura que resolva a solução utilizando o código morse como protocolo de comunicação
+
+-Mais escalável possível
+
+-Se você preferir usar só Python com Django ou Flask, também é possível. Você é livre para criar a arquitetura que você achar mais interessante.
+
+-É importante para a gente você descrever o que motivou suas decisões e caso você tivesse mais tempo como seria a evolução desta arquitetura/produto.
