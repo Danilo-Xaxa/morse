@@ -20,5 +20,8 @@ def index(request):
             traducao = Traducao(morse=morse, texto=texto)
             traducao.save()
             return render(request, 'app_principal/index.html', {'form': form, 'texto': texto})
+        else:
+            return render(request, 'app_principal/index.html', {'form': form, 'texto': 'Erro no formulário'})
+
     else:
         return render(request, 'app_principal/index.html', {'form': Traduzir()})
