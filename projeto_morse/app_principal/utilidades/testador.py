@@ -1,4 +1,4 @@
-from tradutor import Tradutor as t
+from projeto_morse.app_principal.utilidades.tradutor import Tradutor as t
 
 
 def main():
