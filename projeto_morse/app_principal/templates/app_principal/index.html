@@ -8,18 +8,18 @@
 <h1>Bem-vindos ao tradutor de código morse </h1>
 
 <form method="post" action="#">
-    {% csrf_token %}
-		<div class="input-group mb-3">
-            <input type="text" name="morse" style="margin-right: 10px;">
-			<div class="input-group-prepend">
-                <button type="submit" name="traduzir" value="traduzir" class="btn btn-danger">Traduzir</button>
-			</div>
-		</div>
-    </form>
+  {% csrf_token %}
+  <div class="input-group mb-3">
+    <input type="text" name="morse" style="margin-right: 10px;">
+    <div class="input-group-prepend">
+      <button type="submit" name="traduzir" value="traduzir" class="btn btn-danger">Traduzir</button>
+    </div>
+  </div>
+</form>
 
-    {% if texto %}
-    <h2> {{ texto }}</h2>
-    {% endif %}
+{% if texto %}
+  <h2> {{ texto }}</h2>
+{% endif %}
 
 </main>
 
