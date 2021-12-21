@@ -1,7 +1,14 @@
--OBJETIVO: criar tradução de código morse para texto (definir uma arquitetura que resolva a solução utilizando o código morse como protocolo de comunicação de forma mais escalável possível).
+# [DX Morse](https://xdanilo.pythonanywhere.com/)
 
--Solução baseada em socket que recebe um código morse e transforma ele em texto.
+---
+[DX Morse](https://xaxadanilo.pythonanywhere.com/) é uma aplicação web que traduz código morse para texto. O projeto foi desenvolvido em algumas horas como um desafio técnico de um processo seletivo de uma grande organização do Porto Digital.
 
--Imagine que o cliente vai enviar "." e "-" e o servidor vai receber estas informações e interpretar o que aquele código morse representa. 
+---
 
--Documentar bem e descrever as decisões tomadas
+Em breve a aplicação terá a opção de traduzir texto para código morse também.
+
+---
+
+O projeto foi desenvolvido com Python e o framework Flask no back-end e sem nenhum JavaScript. O banco de dados utilizado é o SQLite. Para a maioria dos detalhes de design/layout, o Bootstrap foi utilizado, especialmente o Bootstrap Examples Cover.
+
+A hospedagem foi realizada via PythonAnywhere.
