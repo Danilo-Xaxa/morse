@@ -13,13 +13,4 @@ def decriptar(morse):
     Recebe uma string de código morse e retorna a string traduzida para texto
     '''
     return ''.join(MORSE_PARA_TEXTO[caractere.upper()] for caractere in morse.split(' '))
-
-def main():
-    exemplo_texto = 'CESAR E DANILO'
-    print(encriptar(exemplo_texto))
-
-    exemplo_morse = '-.-. . ... .- .-. / . / -.. .- -. .. .-.. ---'
-    print(decriptar(exemplo_morse))
-
-if __name__ == '__main__':
-    main()
+    
