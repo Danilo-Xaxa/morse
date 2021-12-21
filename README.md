@@ -1,6 +1,5 @@
 # [DX Morse](https://xdanilo.pythonanywhere.com/)
 
----
 [DX Morse](https://xaxadanilo.pythonanywhere.com/) é uma aplicação web que traduz código morse para texto. O projeto foi desenvolvido em algumas horas como um desafio técnico de um processo seletivo de uma grande organização do Porto Digital.
 
 ---
