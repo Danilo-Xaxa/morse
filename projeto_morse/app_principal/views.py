@@ -1,32 +1,50 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import Traduzir
-from .models import Traducao
+from .forms import TraduzirMorse, TraduzirTexto
+from .models import TraducaoMorse, TraducaoTexto
 from .utilidades.tradutor import Tradutor as t
 
 # Create your views here.
 def morse_para_texto(request):
     if request.method == "POST":
         if not request.POST.get("morse").strip():
-            return render(request, 'app_principal/morse_para_texto.html', {'form': Traduzir(), 'texto': 'Digite algo para traduzir'})
+            return render(request, 'app_principal/morse_para_texto.html', {'form': TraduzirMorse(), 'msg': 'Digite algo para traduzir'})
 
-        form = Traduzir(request.POST or None)
+        form = TraduzirMorse(request.POST or None)
 
         if form.is_valid():
             morse = form.cleaned_data["morse"]
             try:
                 texto = t.decriptar(morse)
             except KeyError:
-                return render(request, 'app_principal/morse_para_texto.html', {'form': Traduzir(), 'texto': 'Digite um código morse válido'})
-            traducao = Traducao(morse=morse, texto=texto)
+                return render(request, 'app_principal/morse_para_texto.html', {'form': TraduzirMorse(), 'msg': 'Digite um código morse válido'})
+            traducao = TraducaoMorse(morse=morse, texto=texto)
             traducao.save()
-            return render(request, 'app_principal/morse_para_texto.html', {'form': form, 'texto': texto})
+            return render(request, 'app_principal/morse_para_texto.html', {'form': form, 'msg': texto})
         else:
-            return render(request, 'app_principal/morse_para_texto.html', {'form': form, 'texto': 'Digite 500 caracteres ou menos'})
+            return render(request, 'app_principal/morse_para_texto.html', {'form': form, 'msg': 'Digite 500 caracteres ou menos'})
 
     else:
-        return render(request, 'app_principal/morse_para_texto.html', {'form': Traduzir()})
+        return render(request, 'app_principal/morse_para_texto.html', {'form': TraduzirMorse()})
 
 
 def texto_para_morse(request):
-    return render(request, 'app_principal/texto_para_morse.html', {})
+    if request.method == "POST":
+        if not request.POST.get("texto").strip():
+            return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto(), 'msg': 'Digite algo para traduzir'})
+
+        form = TraduzirTexto(request.POST or None)
+
+        if form.is_valid():
+            texto = form.cleaned_data["texto"]
+            try:
+                morse = t.encriptar(texto)
+            except KeyError:
+                return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto(), 'msg': 'Digite um código morse válido'})
+            traducao = TraducaoTexto(morse=morse, texto=texto)
+            traducao.save()
+            return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': texto})
+        else:
+            return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': 'Digite 500 caracteres ou menos'})
+
+    else:
+        return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto()})

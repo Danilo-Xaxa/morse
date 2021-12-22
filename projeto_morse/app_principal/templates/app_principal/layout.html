@@ -37,8 +37,8 @@
 
         <form method="post" action="/">
             {% csrf_token %}
-        {% if texto %}
-        <p class="lead" id="texto"> {{ texto }} </p>
+        {% if msg %}
+        <p class="lead" id="msg"> {{ msg }} </p>
         {% endif %}
 
         {% block tag_input %}
