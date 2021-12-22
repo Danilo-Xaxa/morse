@@ -40,7 +40,7 @@ def texto_para_morse(request):
             try:
                 morse = t.encriptar(texto)
             except KeyError:
-                return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto(), 'msg': 'Digite um código morse válido'})
+                return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto(), 'msg': 'Digite um texto válido'})
             traducao = TraducaoTexto(morse=morse, texto=texto)
             traducao.save()
             return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': morse})
