@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block form %}
-<form method="post" action="/inverso/">
+<form onsubmit="return minha_func()" method="post" action="/inverso/" id="form"> 
 {% endblock %}
 
 {% block tag_h1 %} 
@@ -16,5 +16,5 @@
 {% endblock %}
 
 {% block tag_input %}
-<input class="lead" type="text" name="texto" style="margin-right: 10px;">
+<input class="lead" type="text" id="texto" name="texto" style="margin-right: 10px;">
 {% endblock %}
