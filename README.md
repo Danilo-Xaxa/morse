@@ -4,10 +4,6 @@
 
 ---
 
-Em breve a aplicação terá a opção de traduzir texto para código morse também.
-
----
-
-O projeto foi desenvolvido com Python e o framework Flask no back-end e sem nenhum JavaScript. O banco de dados utilizado é o SQLite. Para a maioria dos detalhes de design/layout, o Bootstrap foi utilizado, especialmente o Bootstrap Examples Cover.
+O projeto foi desenvolvido com Python e o framework Django no back-end. O banco de dados utilizado é o SQLite. Para a maioria dos detalhes de design/layout, o Bootstrap foi utilizado, especialmente o Bootstrap Examples Cover.
 
 A hospedagem foi realizada via PythonAnywhere.
