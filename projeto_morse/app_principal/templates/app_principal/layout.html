@@ -22,7 +22,7 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">DX Morse</h3>
+          <h3 class="masthead-brand" style="color: #CCDBDC !important;">DX Morse</h3>
           <nav class="nav nav-masthead justify-content-center">
             {% block mudar %} 
             {% endblock %}
@@ -39,20 +39,20 @@
         {% endblock %}
             {% csrf_token %}
         {% if msg %}
-        <p class="lead" id="msg" style="color: gold !important;"> {{ msg }} </p>
+        <p class="lead" id="msg" style="color: #FCEC52 !important;"> {{ msg }} </p>
         {% endif %}
 
         {% block tag_input %}
 
         {% endblock %}
         <p class="lead">
-          <button class="btn btn-lg btn-secondary" type="submit" name="traduzir" value="traduzir" style="margin-top: 25px;">Traduzir</button>
+          <button class="btn btn-lg btn-secondary" type="submit" name="traduzir" value="traduzir" style="margin-top: 25px; background-color: #CCDBDC !important; border-color: #CCDBDC;">Traduzir</button>
         </p>
       </main>
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Web App by <a href="https://www.linkedin.com/in/danilo-xaxa/">Danilo Xaxá</a>. Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p>Web App by <a style="color: #FBF5F3 !important" href="https://www.linkedin.com/in/danilo-xaxa/">Danilo Xaxá</a>. Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
         </div>
       </footer>
     </div>
