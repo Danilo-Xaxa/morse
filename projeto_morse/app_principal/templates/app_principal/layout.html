@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Morse para Texto </title>
+    <title> {% block titulo %} Titulo do Layout {% endblock %} </title>
     <link rel="shortcut icon" href="../static/favicon.ico" type="image/x-icon">
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
@@ -24,19 +24,26 @@
         <div class="inner">
           <h3 class="masthead-brand">DX Morse</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="/">Limpar</a>
+            {% block mudar %} 
+            {% endblock %}
           </nav>
         </div>
       </header>
 
       <main role="main" class="inner cover">
-        <h1 class="cover-heading" style="margin-bottom: 25px;">Bem-vindos ao <br> Tradutor de Morse!</h1>
+        {% block tag_h1 %} 
+        
+        {% endblock %}
+
         <form method="post" action="/">
             {% csrf_token %}
         {% if texto %}
         <p class="lead" id="texto"> {{ texto }} </p>
         {% endif %}
-        <input class="lead" type="text" name="morse" style="margin-right: 10px;">
+
+        {% block tag_input %}
+
+        {% endblock %}
         <p class="lead">
           <button class="btn btn-lg btn-secondary" type="submit" name="traduzir" value="traduzir" style="margin-top: 25px;">Traduzir</button>
         </p>

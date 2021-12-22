@@ -1,0 +1,16 @@
+{% extends "app_principal/layout.html" %}
+
+{% block titulo %} Morse para Texto {% endblock %}
+
+{% block mudar %} 
+<a class="nav-link active" href="/">Limpar</a>
+<a class="nav-link active" href="/inverso/">Texto para Morse</a>
+{% endblock %}
+
+{% block tag_h1 %} 
+<h1 class="cover-heading" style="margin-bottom: 25px;">Bem-vindos ao <br> Tradutor de Morse</h1>
+{% endblock %}
+
+{% block tag_input %}
+<input class="lead" type="text" name="morse" style="margin-right: 10px;">
+{% endblock %}
