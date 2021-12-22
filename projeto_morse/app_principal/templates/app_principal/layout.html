@@ -35,10 +35,11 @@
         
         {% endblock %}
 
-        <form method="post" action="/">
+        {% block form %}
+        {% endblock %}
             {% csrf_token %}
         {% if msg %}
-        <p class="lead" id="msg"> {{ msg }} </p>
+        <p class="lead" id="msg" style="color: gold !important;"> {{ msg }} </p>
         {% endif %}
 
         {% block tag_input %}
