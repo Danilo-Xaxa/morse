@@ -123,15 +123,9 @@ function stop() {
 	document.getElementById('bemVindos').style.color = '#F0F0C9';
 }
 
-function go() {
+function go(morse) {
 	stop();
 
-	var txt = document.getElementById('texto').value;
 	TICK_MS = 150;
-	play_instructions(morse2instructions(str2morse(txt)), document.getElementById('bemVindos'));
-}
-
-function minha_func() {
-    go();
-    return false;  // quando true, go() começa a executar, mas para na hora que a página atualiza. quando false, go() vai até o fim, mas a página não atualiza
+	play_instructions(morse2instructions(morse), document.getElementById('bemVindos'));
 }
