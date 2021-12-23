@@ -62,18 +62,18 @@
         <script src="https://fkurz.net/ham/jscwlib/src/jscwlib.js"></script>
         <script>
           let msgMorse = $('#msg_morse').data().msg.trimEnd();
-          let textoSom = $('#texto_som').data().texto_som;
-          console.log(msgMorse)
-          setTimeout(function() { 
-            go(msgMorse);
-            let m = new jscw({"wpm": 8});
-            m.setText(textoSom);
-            m.renderPlayer('player', m);
-            // pegar o segundo img dentro de #player e clicar
-            let player = document.getElementById("player")
-            let play = player.getElementsByTagName("img")[1]
-            play.click()
-          }, 500);
+          let textoSom = $('#texto_som').data().texto_som.trimEnd();
+          setTimeout(function() {
+            if (countWords(textoSom) <= 2) {
+              let m = new jscw({"wpm": 8});
+              m.setText(textoSom);
+              m.renderPlayer('player', m);
+              let player = document.getElementById("player")
+              let play = player.getElementsByTagName("img")[1]
+              play.click()
+            }
+            piscar(msgMorse);
+          }, 1000);
         </script>
       {% endif %}
       </main>

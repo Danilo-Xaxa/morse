@@ -123,9 +123,16 @@ function stop() {
 	document.getElementById('bemVindos').style.color = '#F0F0C9';
 }
 
-function go(morse) {
+function piscar(morse) {
 	stop();
 
 	TICK_MS = 150;
 	play_instructions(morse2instructions(morse), document.getElementById('bemVindos'));
 }
+
+function countWords(str) {
+	str = str.toString().replace(/(^\s*)|(\s*$)/gi,"");
+	str = str.replace(/[ ]{2,}/gi," ");
+	str = str.replace(/\n /,"\n");
+	return str.split(' ').length;
+ }
