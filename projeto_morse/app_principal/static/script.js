@@ -104,7 +104,7 @@ function play_instructions(ins, elem) {
 		var c = ins.shift();
 		var bg = 0;
 		if (c[1]) {
-			bg = 'red';
+			bg = '#F05D5E';
 		} else {
 			bg = '#F0F0C9';
 		}

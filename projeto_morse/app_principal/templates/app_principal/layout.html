@@ -47,7 +47,7 @@
         <p class="lead" id="msg" style="color: #FCEC52 !important;"> {{ msg }} </p>
         <script src="../../static/script.js"></script>
         <script>
-          go($('#msg_morse').data().msg.trimEnd());
+          setTimeout(function(){ go($('#msg_morse').data().msg.trimEnd()) }, 500);
         </script>
         {% endif %}
 
