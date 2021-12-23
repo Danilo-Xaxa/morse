@@ -43,7 +43,7 @@ def texto_para_morse(request):
                 return render(request, 'app_principal/texto_para_morse.html', {'form': TraduzirTexto(), 'msg': 'Digite um texto válido'})
             traducao = TraducaoTexto(morse=morse, texto=texto)
             traducao.save()
-            return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': morse, 'piscar_morse': True})
+            return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': morse, 'piscar_morse': True, 'texto_som': texto})
         else:
             return render(request, 'app_principal/texto_para_morse.html', {'form': form, 'msg': 'Digite 500 caracteres ou menos'})
 

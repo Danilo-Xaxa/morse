@@ -9,6 +9,7 @@
 
     {% if piscar_morse %}
     <meta id="msg_morse" data-msg="{{msg}}">
+    <meta id="texto_som" data-texto_som="{{texto_som}}">
     {% endif %}
 
     <title> {% block titulo %} Titulo do Layout {% endblock %} </title>
@@ -45,10 +46,6 @@
             {% csrf_token %}
         {% if msg %}
         <p class="lead" id="msg" style="color: #FCEC52 !important;"> {{ msg }} </p>
-        <script src="../../static/script.js"></script>
-        <script>
-          setTimeout(function(){ go($('#msg_morse').data().msg.trimEnd()) }, 500);
-        </script>
         {% endif %}
 
         {% block tag_input %}
@@ -57,6 +54,28 @@
         <p class="lead">
           <button class="btn btn-lg btn-secondary" type="submit" name="traduzir" value="traduzir" style="margin-top: 25px; background-color: #CCDBDC !important; border-color: #CCDBDC;">Traduzir</button>
         </p>
+      {% if piscar_morse %}
+      <p class="lead">
+        <div id="player" style="display: none !important;"></div>
+      </p>
+        <script src="../../static/script.js"></script>
+        <script src="https://fkurz.net/ham/jscwlib/src/jscwlib.js"></script>
+        <script>
+          let msgMorse = $('#msg_morse').data().msg.trimEnd();
+          let textoSom = $('#texto_som').data().texto_som;
+          console.log(msgMorse)
+          setTimeout(function() { 
+            go(msgMorse);
+            let m = new jscw({"wpm": 8});
+            m.setText(textoSom);
+            m.renderPlayer('player', m);
+            // pegar o segundo img dentro de #player e clicar
+            let player = document.getElementById("player")
+            let play = player.getElementsByTagName("img")[1]
+            play.click()
+          }, 500);
+        </script>
+      {% endif %}
       </main>
 
       <footer class="mastfoot mt-auto">
