@@ -12,63 +12,7 @@ var INSTRS = {
 	'/': WORD_GAP,
 };
 
-var TICK_MS = 150;
-
-var CHARS = {
-	'0': '-----',
-	'1': '.----',
-	'2': '..---',
-	'3': '...--',
-	'4': '....-',
-	'5': '.....',
-	'6': '-....',
-	'7': '--...',
-	'8': '---..',
-	'9': '----.',
-
-	'A': '.-',
-	'B': '-...',
-	'C': '-.-.',
-	'D': '-..',
-	'E': '.',
-	'F': '..-.',
-	'G': '--.',
-	'H': '....',
-	'I': '..',
-	'J': '.---',
-	'K': '-.-',
-	'L': '.-..',
-	'M': '--',
-	'N': '-.',
-	'O': '---',
-	'P': '.--.',
-	'Q': '--.-',
-	'R': '.-.',
-	'S': '...',
-	'T': '-',
-	'U': '..-',
-	'V': '...-',
-	'W': '.--',
-	'X': '-..-',
-	'Y': '-.--',
-	'Z': '--..',
-
-	'+': '.-.-.',
-	'-': '-....-',
-	'_': '..--.-',
-	'"': '.-..-.',
-	' ': '/',
-};
-
-function str2morse(s) {
-	var r = [];
-
-	s = s.toUpperCase();
-	for (var i = 0; i < s.length; i++) {
-		r.push(CHARS[s[i]]);
-	}
-	return r.join(' ');
-}
+var TICK_MS = 150; // não seria 125?
 
 function morse2instructions(m) {
 	var r = [];
@@ -126,13 +70,5 @@ function stop() {
 function piscar(morse) {
 	stop();
 
-	TICK_MS = 150;
 	play_instructions(morse2instructions(morse), document.getElementById('bemVindos'));
 }
-
-function countWords(str) {
-	str = str.toString().replace(/(^\s*)|(\s*$)/gi,"");
-	str = str.replace(/[ ]{2,}/gi," ");
-	str = str.replace(/\n /,"\n");
-	return str.split(' ').length;
- }

@@ -64,14 +64,15 @@
           let msgMorse = $('#msg_morse').data().msg.trimEnd();
           let textoSom = $('#texto_som').data().texto_som.trimEnd();
           setTimeout(function() {
-            if (countWords(textoSom) <= 2) {
-              let m = new jscw({"wpm": 8});
-              m.setText(textoSom);
-              m.renderPlayer('player', m);
-              let player = document.getElementById("player")
-              let play = player.getElementsByTagName("img")[1]
-              play.click()
-            }
+            // Fica fora de sincronia as vezes no começo, as vezes durante longos textos e sempre a partir da terceira palavra
+            // Além disso, joga o conteúdo pra baixo quando é a primeira vez
+            let m = new jscw({"wpm": 8});
+            m.setText(textoSom);
+            m.setVolume(0.3);
+            m.renderPlayer('player', m);
+            let player = document.getElementById("player");
+            let play = player.getElementsByTagName("img")[1];
+            play.click();
             piscar(msgMorse);
           }, 1000);
         </script>
